@@ -1,19 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { act } from "react-dom/test-utils";
-
 import moment from "moment-timezone";
-
 import MultiEvent from "../src/multiEvent";
 
 let container;
-
 let basicProps = {
   borderColor: "black",
   hoverColor: "red",
   textColor: "blue",
   circleColor: "green",
-}
+};
 
 beforeEach(() => {
   container = document.createElement("div");
@@ -26,7 +23,7 @@ afterEach(() => {
 });
 
 describe("Multi Event Component", () => {
-  test("opens and closes properly on click",() => {
+  test("opens and closes properly on click", () => {
     let props = {
       name: "Test Event",
       startTime: moment(),
@@ -38,7 +35,7 @@ describe("Multi Event Component", () => {
     });
 
     expect(window.getComputedStyle(container.querySelector('.tooltip')).visibility).toEqual("hidden");
-    
+
     act(() => {
       container.querySelector(".event-text").dispatchEvent(new MouseEvent("click", { bubbles: true }));
     });
